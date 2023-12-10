@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <title>Navigation Bar</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="reRender()" id="home">HOME</a>
+            <a onclick="darkMode()" id="mode">MODE</a>
+            <a onclick="greenMode()" id="grMode">GREEN MODE</a>
+        </nav>
+        <h1>SHENZEN</h1>
+        <p class="info" id="info"></p>
+    </div>
+
+    <!-- initializing function darkmode -->
+    <script>
+
+        let body = document.body
+        let info = document.getElementById("info");
+        let mode = document.getElementById("mode")
+        let home = document.getElementById("home")
+        let grMode = document.getElementById("grMode")
+
+        let darkLimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft;
+
+        function darkMode() {
+            if(darkRemainingLeft == 1){
+                info.textContent = "FITUR DARK MODE SUDAH HABIS"
+                mode.style.display = "none"
+                home.textContent = "RESTART"
+                return;
+            }
+
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+
+            // rendering ke info element
+            info.textContent = `dark mode dipakai ${darkCounter}x, sisa kesempatan anda${darkRemainingLeft}x`;
+            body.classList.toggle("dark");
+        }            
+
+
+        // green Mode
+
+
+        greenLimit = "7";
+        greenCounter = 0;
+        grModeRemainingLeft;
+
+        function greenMode() {
+            if(greenRemainingLeft) {
+                console.log("tombol grMode di klik1")
+            }
+
+            greenCounter += 1;
+            body.classList.toggle("green")
+        }
+
+        function reRender() {
+            location.reload();
+        }
+
+    </script>
+</body>
+</html>
+
+<!-- yang perlu di tambah -->
+tambah fitur light dark di menu mode pada navbar
+tambah menu navbar
